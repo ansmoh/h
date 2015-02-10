@@ -1,8 +1,8 @@
 // Styles for the ngTagsInput plugin.
 // http://mbenford.github.io/ngTagsInput/gettingstarted
 
+@import "mixins/layout";
 @import "mixins/forms";
-@import "compass/css3/user-interface";
 
 tags-input {
   .host {

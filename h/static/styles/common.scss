@@ -1,5 +1,3 @@
-@import 'compass/typography/text/force-wrap';
-@import 'compass/layout/stretching';
 @import 'base';
 
 $base-font-size: 16px;
@@ -7,6 +5,7 @@ $base-line-height: 26px;
 $headings-color: $text-color;
 
 @import 'mixins/responsive';
+@import 'mixins/reset';
 @import 'grid';
 @import 'annotations';
 @import 'forms';
@@ -72,8 +71,8 @@ html {
 
 //Candidate for cleanup
 .btn-link {
-  @include box-shadow(none);
   @include reset-box-model;
+  box-shadow: none;
   background: none;
   background-color: transparent;
   text-decoration: underline;
@@ -167,7 +166,7 @@ html {
 }
 
 .dropdown-menu {
-  @include rotateX(90deg);
+  @include transform(rotateX(90deg));
   background: $white;
   border: solid 1px $gray-lighter;
   margin-top: .8em;
@@ -224,7 +223,7 @@ html {
   // These psuedo-elements add the speech bubble tail / triangle.
   &:before, &:after {
     // http://www.red-team-design.com/css-diagonal-borders-still-not-rendering-properly-on-firefox
-    @include scale(.9999);
+    @include transform(scale(.9999));
     border-color: rgba(0, 0, 0, 0);
 
     border-style: solid;
@@ -264,7 +263,7 @@ html {
 .open {
   & > .dropdown-menu {
     @include smallshadow;
-    @include rotateX(0);
+    @include transform(rotateX(0));
     opacity: 1;
     pointer-events: auto;
   }

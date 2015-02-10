@@ -1,4 +1,4 @@
-@import "../base";
+@import "../variables";
 
 @mixin focus-outline {
   border-color: #51A7E8;
@@ -37,7 +37,7 @@
 
 @mixin btn {
   @include background(linear-gradient($button-background-gradient...));
-  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.15));
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 
   display: inline-block;
   font-size: 13px;
@@ -50,7 +50,7 @@
 }
 
 @mixin btn-hover {
-  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.05));
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   outline: none;
   color: $button-text-color;
   background: $button-background-start;
@@ -58,14 +58,14 @@
 }
 
 @mixin btn-active {
-  @include box-shadow(inset 0 1px 0 rgba(0, 0, 0, 0.1));
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
   background: $button-background-end;
   color: #424242;
   border-color: #bababa;
 }
 
 @mixin btn-disabled {
-  @include box-shadow(none);
+  box-shadow: none;
   cursor: default;
   background: #F0F0F0;
   border-color: #CECECE;

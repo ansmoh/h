@@ -50,8 +50,8 @@
   height: 0.6em;
   border-radius: 0.1em;
   background: #eee;
-  @include box-shadow(0 1.4em rgba(0, 0, 0, 0.15)); /* container height - part height */
-  @include transform-origin(50%, 1em); /* container height / 2 */
+  box-shadow: 0 1.4em rgba(0, 0, 0, 0.15); /* container height - part height */
+  @include transform-origin(50% 1em); /* container height / 2 */
 }
 
 .spinner:before {

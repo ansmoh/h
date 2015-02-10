@@ -1,12 +1,11 @@
-@import 'compass/css3/box-sizing';
-@import 'compass/reset';
+@import 'mixins/reset';
 
 /*
-  Consistency fixes
-  adopted from http://necolas.github.com/normalize.css/
-  */
+Consistency fixes
+adopted from http://necolas.github.com/normalize.css/
+*/
 
-* { @include box-sizing(border-box); }
+* { box-sizing: border-box; }
 
 html {
   height: 100%;

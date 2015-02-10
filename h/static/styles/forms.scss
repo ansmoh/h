@@ -1,7 +1,5 @@
 // Common form styles.
 @import "mixins/forms";
-@import "compass/css3/images";
-@import "compass/utilities/general/clearfix";
 
 .form-field {
   @include pie-clearfix;
@@ -225,14 +223,14 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 
   &:focus, &:hover, &:active, &.js-hover, &.js-focus, &.js-active {
-    @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.05));
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     color: white;
     background: #e02b3c;
     border-color: $hypothered;
   }
 
   &:active, &.js-active {
-    @include box-shadow(inset 0 1px 0 rgba(0, 0, 0, 0.3));
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
     color: white;
     background: shade($hypothered, 10%);
     border-color: shade($hypothered, 30%);
@@ -241,7 +239,7 @@
 
 .btn-clean {
   &, &:focus, &:hover, &:active, &.js-hover, &.js-focus, &.js-active {
-    @include box-shadow(none);
+    box-shadow: none;
     padding-left: 0;
     padding-right: 0;
     background: none;

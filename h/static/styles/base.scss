@@ -1,4 +1,3 @@
-@import "compass/css3";
 @import "variables";
 
 /* Style input placeholders */
@@ -12,7 +11,7 @@
 
 /* Shadow mixins */
 @mixin smallshadow($a: 0, $b: 1px, $c: .1) {
-  @include box-shadow($a $b 1px hsla(0, 0%, 0%, $c));
+  box-shadow: $a $b 1px hsla(0, 0%, 0%, $c);
 }
 
 @mixin plainform {
@@ -27,7 +26,7 @@
   &:focus, &.js-focus {
     outline: 0;
     border: 1px solid $gray;
-    @include box-shadow( inset 1px 1px 6px -1px $gray-lighter);
+    box-shadow: inset 1px 1px 6px -1px $gray-lighter;
   }
   &:disabled {
     background-color: $gray-lightest;
@@ -40,10 +39,9 @@
 @mixin sweetbutton {
   @include background-image(
     linear-gradient(top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(240, 240, 240) 100%));
-  @include box-shadow(
-    inset 0 .2em 0 rgba(255, 255, 255, .2),
-    0 .05em .1em rgba(0, 0, 0, .08));
   @include plainform;
+  box-shadow: inset 0 .2em 0 rgba(255, 255, 255, .2),
+              0 .05em .1em rgba(0, 0, 0, .08);
   cursor: pointer;
   display: inline-block;
   padding: .4em .9em .5em;
@@ -67,9 +65,8 @@
   &:active:not([disabled]), &.js-active {
     @include background-image(
       linear-gradient(top, #fcfcfc 0%, #f3f3f3 50%, #e1e1e1 51%, #fbfbfb 100%));
-    @include box-shadow(
-      inset 0 .15em .25em rgba(0, 0, 0, .15),
-      0 .05em .1em rgba(0, 0, 0, .0));
+    box-shadow: inset 0 .15em .25em rgba(0, 0, 0, .15),
+                0 .05em .1em rgba(0, 0, 0, .0);
     border-color: $gray-light $gray-light $gray;
     top: 1px;
   }
@@ -98,8 +95,8 @@
 
 //FLASH/TOAST/ALERTS///////////////////////////////
 .annotator-notice {
-  @include box-shadow(inset 2px 1px 1px hsla(0, 0%, 0%, .1));
-  @include single-transition(opacity, .2s);
+  @include transition(opacity, .2s);
+  box-shadow: inset 2px 1px 1px hsla(0, 0%, 0%, .1);
   direction: ltr;
   font-family: $sans-font-family;
   font-weight: 300;
