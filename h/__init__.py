@@ -29,3 +29,4 @@ def includeme(config):
     if config.registry.feature('notification'):
         config.include('h.notification')
 
+    config.include('h.claim')
