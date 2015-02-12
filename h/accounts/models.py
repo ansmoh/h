@@ -65,7 +65,8 @@ class User(UserMixin, Base):
 
     @classmethod
     def get_by_id(cls, request, userid):
-        match = re.match(r'acct:([^@]+)@{}'.format(request.domain), userid)
+        regex = r'acct:([^@]+)@{}'.format(request.domain)
+        match = re.match(regex, str(userid))
         if match:
             return cls.get_by_username(request, match.group(1))
         else:
