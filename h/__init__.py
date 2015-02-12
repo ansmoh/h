@@ -8,6 +8,11 @@ __all__ = ['main']
 
 
 def includeme(config):
+    config.include('pyramid_jinja2')
+    config.add_jinja2_renderer('.js')
+    config.add_jinja2_renderer('.txt')
+    config.add_jinja2_renderer('.html')
+
     config.include('h.authentication')
     config.include('h.authorization')
     config.include('h.features')
@@ -24,7 +29,3 @@ def includeme(config):
     if config.registry.feature('notification'):
         config.include('h.notification')
 
-    config.include('pyramid_jinja2')
-    config.add_jinja2_renderer('.js')
-    config.add_jinja2_renderer('.txt')
-    config.add_jinja2_renderer('.html')
