@@ -48,10 +48,15 @@ describe 'h', ->
       send: sandbox.spy()
     }
 
+    fakeThreading =
+      idTable:
+        myId: "local annotation"
+
     $provide.value 'identity', fakeIdentity
     $provide.value 'streamer', fakeStreamer
     $provide.value '$location', fakeLocation
     $provide.value '$routeParams', fakeParams
+    $provide.value '$threading', fakeThreading
     return
 
   afterEach ->
@@ -69,6 +74,13 @@ describe 'h', ->
     it 'does not show login form for logged in users', ->
       createController()
       assert.isFalse($scope.dialog.visible)
+
+    describe 'applyUpdate', ->
+
+      it 'fails', ->
+        console.log "While testing, streamer is:", fakeStreamer
+        fakeStreamer.onmessage "asd"
+        assert false
 
   describe 'AnnotationViewerController', ->
     annotationViewer = null
