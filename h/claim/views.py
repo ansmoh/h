@@ -55,7 +55,7 @@ def includeme(config):
 
 def _user_for_token(request, token):
     payload = request.registry.claim_serializer.loads(token)
-    user = User.get_by_id(request, payload['user_id'])
+    user = User.get_by_id(request, payload['userid'])
     if not user or user.password:
         msg = 'This account has already been claimed'
         FlashMessage(request, msg, kind='error')
