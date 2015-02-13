@@ -3,7 +3,6 @@ from pyramid.view import view_config
 from horus.lib import FlashMessage
 from horus.interfaces import IResetPasswordForm
 from horus.interfaces import IResetPasswordSchema
-from hem.db import get_session
 from pyramid.httpexceptions import HTTPFound
 from h.accounts.models import User
 from h.accounts.events import LoginEvent
@@ -32,14 +31,13 @@ def update_account(request):
     form = _form_for_update_account(request)
     data = request.POST
 
+    print form
     try:
         form.validate(data.items())
     except deform.ValidationFailure:
         return {'form': form}
 
-    db = get_session(request)
     user.password = data['password']
-    db.add(user)
 
     msg = 'Your account has been successfully claimed'
     FlashMessage(request, msg, kind='success')
