@@ -238,7 +238,9 @@ AnnotationController = [
       @timestamp = timeHelpers.toFuzzyString model.updated
       fuzzyUpdate = timeHelpers.nextFuzzyUpdate model.updated
       fuzzyUpdate = 5 if fuzzyUpdate < 5  # minimum 5 seconds
-      nextUpdate = (1000 * fuzzyUpdate) + 500
+      # setTimeout limit is MAX_INT32=(2^31-1),
+      # we won't set up any timeouts longer than that.
+      nextUpdate = Math.min 0x7FFFFFFF, (1000 * fuzzyUpdate) + 500
       return unless repeat
       $timeout =>
         updateTimestamp(true)
